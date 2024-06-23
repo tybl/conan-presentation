@@ -3,7 +3,7 @@ FROM almalinux:9.4-20240530
 ENV CONAN_HOME=/tmp/conan/config
 
 RUN dnf -y upgrade \
- && dnf -y install cmake gcc-c++ make vim \
+ && dnf -y install cmake gcc-c++ git make vim \
  && dnf clean all \
  && python3 -m venv /tmp/conan/venv \
  && source /tmp/conan/venv/bin/activate \
