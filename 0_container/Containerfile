@@ -1,0 +1,14 @@
+FROM almalinux:9.4-20240530
+
+ENV CONAN_HOME=/tmp/conan/config
+
+RUN dnf -y upgrade \
+ && dnf -y install cmake gcc-c++ make vim \
+ && dnf clean all \
+ && python3 -m venv /tmp/conan/venv \
+ && source /tmp/conan/venv/bin/activate \
+ && python -m pip install --upgrade pip conan \
+ && python -m pip cache purge \
+ && conan profile detect
+
+WORKDIR /code
