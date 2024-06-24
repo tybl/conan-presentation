@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "network/remote_endpoint.proto";
+
+package com.srcinc.example.config;
+
+message Configuration
+{
+   int64 config_revision = 1;
+
+   repeated network.RemoteEndpoint endpoints = 2;
+}
