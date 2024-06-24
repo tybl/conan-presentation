@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.srcinc.example.config.network;
+
+message RemoteEndpoint
+{
+
+   string ipv4_address = 1;
+
+   int32 udp_port = 2;
+
+}

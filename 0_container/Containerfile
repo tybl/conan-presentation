@@ -3,12 +3,17 @@ FROM almalinux:9.4-20240530
 ENV CONAN_HOME=/tmp/conan/config
 
 RUN dnf -y upgrade \
- && dnf -y install cmake gcc-c++ make vim \
+ && dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
+ && dnf -y install cmake gcc-c++ git make neovim python3-neovim \
+ && dnf -y remove epel-release \
  && dnf clean all \
  && python3 -m venv /tmp/conan/venv \
  && source /tmp/conan/venv/bin/activate \
  && python -m pip install --upgrade pip conan \
  && python -m pip cache purge \
+ && conan remote add remote-conan https://artifactory.srcinc.com/api/conan/remote-conan \
+ && conan remote add srcinc-conan https://artifactory.srcinc.com/api/conan/srcinc-conan \
+ && conan remote disable conancenter \
  && conan profile detect
 
 WORKDIR /code
