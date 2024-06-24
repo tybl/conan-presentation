@@ -1,9 +1,9 @@
 {
-	"configRevision": 1,
-	"endpoints": [
-		{
-			"ipv4Address": "127.0.0.1",
-			"udpPort": 80
-		}
-	]
+  "configRevision": 1,
+  "endpoints": [
+    {
+      "ipv4Address": "127.0.0.1",
+      "udpPort": 80
+    }
+  ]
 }
