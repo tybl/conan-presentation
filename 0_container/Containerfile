@@ -6,8 +6,8 @@ RUN dnf -y upgrade \
  && dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm \
  && dnf -y install cmake gcc-c++ git make neovim python3-neovim \
  && dnf -y remove epel-release \
- && dnf clean all \
- && python3 -m venv /tmp/conan/venv \
+ && dnf clean all
+RUN python3 -m venv /tmp/conan/venv \
  && source /tmp/conan/venv/bin/activate \
  && python -m pip install --upgrade pip conan \
  && python -m pip cache purge \
@@ -15,5 +15,7 @@ RUN dnf -y upgrade \
  && conan remote add srcinc-conan https://artifactory.srcinc.com/api/conan/srcinc-conan \
  && conan remote disable conancenter \
  && conan profile detect
+RUN mkdir -p /root/.config/nvim \
+ && echo "vim.o.mouse = ''" >> /root/.config/nvim/init.lua
 
 WORKDIR /code

@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-podman run -it --rm -v $PWD:/code:Z conan-presentation bash
+podman --root=$TMPDIR/containers run -it --rm -v $PWD:/code conan-presentation bash

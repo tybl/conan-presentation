@@ -21,7 +21,8 @@ class boost_appRecipe(ConanFile):
     exports_sources = "CMakeLists.txt", "src/*"
 
     def requirements(self):
-        self.requires("boost/1.85.0", options={"header_only": True})
+        self.requires("boost/1.85.0")
+        #self.requires("boost/1.85.0", options={"header_only": True})
 
     def layout(self):
         cmake_layout(self)

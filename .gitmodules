@@ -1,0 +1,3 @@
+[submodule "6_swp_log/log"]
+	path = 6_swp_log/log
+	url = ssh://git@engbb.srcinc.com:7999/swp/log.git
